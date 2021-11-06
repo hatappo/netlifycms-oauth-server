@@ -4,5 +4,8 @@
   "private": true,
   "devDependencies": {
     "shadow-cljs": "2.15.13"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }

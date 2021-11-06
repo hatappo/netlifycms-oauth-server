@@ -1,11 +1,14 @@
-;; shadow-cljs configuration
 {:source-paths
- ["src/dev"
-  "src/main"
-  "src/test"]
+ ["src"]
 
- :dependencies
- []
+ :dependencies []
 
  :builds
- {}}
+ {:app
+  {:main netlifycms-oauth-server.core/main
+   :target :node-script
+   :compiler-options {:infer-externs :auto}
+   :output-to "out/netlifycms-oauth-server.js"
+   :devtools
+   {:after-load netlifycms-oauth-server.core/start!
+    :before-load netlifycms-oauth-server.core/stop!}}}}
