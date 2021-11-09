@@ -2,10 +2,16 @@
   "name": "netlifycms-oauth-server",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": "16"
+  },
   "devDependencies": {
+    "firebase-tools": "^9.22.0",
     "shadow-cljs": "2.15.13"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "firebase-functions": "^3.16.0",
+    "simple-oauth2": "^4.2.0"
   }
 }

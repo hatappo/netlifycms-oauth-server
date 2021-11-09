@@ -23,3 +23,8 @@ pom.xml.asc
 /.lsp/.cache/
 
 /out/
+
+/functions/package.json
+/functions/package-lock.json
+/functions/.runtimeconfig.json
+/functions/**/*.js

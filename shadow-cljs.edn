@@ -5,10 +5,22 @@
 
  :builds
  {:app
-  {:main netlifycms-oauth-server.core/main
-   :target :node-script
+  {:target :node-script
    :compiler-options {:infer-externs :auto}
    :output-to "out/netlifycms-oauth-server.js"
+   :main netlifycms-oauth-server.core/main
    :devtools
    {:after-load netlifycms-oauth-server.core/start!
-    :before-load netlifycms-oauth-server.core/stop!}}}}
+    :before-load netlifycms-oauth-server.core/stop!
+    :repl-init-ns netlifycms-oauth-server.core
+    :repl-pprint true}}
+  :functions
+  {:target :node-library
+   :compiler-options {:infer-externs :auto}
+   :output-to "functions/index.js"
+   :exports-var netlifycms-oauth-server.core/exports}
+  :example-functions
+  {:target :node-library
+   :compiler-options {:infer-externs :auto}
+   :output-to "functions/index.js"
+   :exports-var netlifycms-oauth-server.example/example}}}
