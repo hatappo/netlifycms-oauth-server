@@ -97,7 +97,7 @@
 
 
 (defn start-server
-  "ルーティングやポートなどを設定"
+  "Configures ports and routings."
   []
   (let [app (express)
         prod? (= (.get app "env") "production")
@@ -111,20 +111,22 @@
 
 
 (defn start!
-  "サーバを起動し `server` atom にサーバインスタンスを束縛"
+  "Starts the server, as well as updates the `server` atom 
+  with the server instance so that we could later stop it."
   []
   (reset! server (start-server)))
 
 
 (defn stop!
-  "コネクションを閉じて `server` atom の束縛を解く"
+  "Closes the `server` connection as well as sets the `server`
+  atom to `nil`."
   []
   (.close @server)
   (reset! server nil))
 
 
 (defn main
-  "アプリケーションのエントリポイント"
+  "Main entrypoint to the app."
   [& _args]
   (start!))
 
