@@ -5,10 +5,9 @@ This is GitHub OAuth2 server for [NetlifyCMS](https://www.netlifycms.org/) , whi
 
 ## Set up development environment
 
-```sh
-# git clone ${repo_url}
-# cd ${prj_name}
+Fork and clone this repo. Then,
 
+```sh
 npm install
 ```
 
@@ -20,14 +19,31 @@ Vist https://github.com/settings/developers and register a new OAuth application
 - `Application name` -  free
 - `Homepage URL` -  free
 - `Application description` - free
-- `Authorization callback URL` - `https://asia-northeast1-${firebase_prj_id}.cloudfunctions.net/oauth`
+- `Authorization callback URL` - `https://asia-northeast1-<YOUR_FIREBASE_PROJECT_ID>.cloudfunctions.net/oauth`
+
+If you don't have Firebase projects yet here, you can change the callback url after created it.
+
+
+## Configure Netlify CMS
+
+In yours projects modify `config.yml` file:
+
+```yaml
+backend:
+  name: github
+  repo: <YOUR_GITHUB_ID_OR_ORG>/netlifycms-oauth-server
+  branch: main  # Or branch you want to update
+  base_url: https://asia-northeast1-<YOUR_FIREBASE_PROJECT_ID>.cloudfunctions.net
+  auth_endpoint: /oauth/auth
+```
 
 
 ## Set up Firebase Functions
 
 ```
-npx firebase use ${firebase_prj_id}
-npx firebase functions:config:set oauth.client_id=${github_oauth_app_clientid} oauth.client_secret=${github_oauth_apa_clientsecret}
+npx firebase login
+npx firebase use <YOUR_FIREBASE_PROJECT_ID>
+npx firebase functions:config:set oauth.client_id=<GITHUB_OAUTH_APP_CLIENTID> oauth.client_secret=<GITHUB_OAUTH_APA_CLIENTSECRET>
 ```
 
 
@@ -64,7 +80,8 @@ cp .runtimeconfig.json functions/
 
 npx shadow-cljs compile functions
 
-npx firebase use ${prj_id}
+npx firebase login
+npx firebase use <YOUR_FIREBASE_PROJECT_ID>
 npx firebase serve -p 5001
 ```
 
@@ -81,7 +98,7 @@ cp package.json functions/
 deploy to Firebase Function
 
 ```
-npx firebase use ${prj_id}
+npx firebase use <YOUR_FIREBASE_PROJECT_ID>
 npx firebase deploy --only functions:netlify-oauth
 ```
 
@@ -95,6 +112,6 @@ npx firebase deploy --only functions:example
 
 ## TODOS
 
-- [ ] CI/CD.
+- [ ] CI/CD. But this type of app is not frequently released.
 - [ ] Other Git Service support e.g. GitLab, GitHub Enterprise
 - [ ] Specify `timeoutSeconds` , `memory` etc.
