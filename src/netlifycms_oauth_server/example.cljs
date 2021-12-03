@@ -5,9 +5,10 @@
 
 (def example
   #js{:example
-      (-> functions
-          (.region "asia-northeast1")
-          .-https
-          (.onRequest (fn handle-request
-                        [^js _req, ^js res]
-                        (.send res "Hello, World"))))})
+      (.. functions
+          (runWith #js {:timeoutSeconds 10 :memory "128MB"})
+          (region "asia-northeast1")
+          -https
+          (onRequest (fn handle-request
+                       [^js _req, ^js res]
+                       (.send res "Hello, World"))))})

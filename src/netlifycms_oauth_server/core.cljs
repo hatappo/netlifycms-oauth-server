@@ -132,4 +132,8 @@
 
 
 (def exports
-  #js{:oauth (-> functions (.region "asia-northeast1") .-https (.onRequest (routes (express))))})
+  #js{:oauth (.. functions
+                 (runWith #js {:timeoutSeconds 10 :memory "128MB"})
+                 (region "asia-northeast1")
+                 -https
+                 (onRequest (routes (express))))})

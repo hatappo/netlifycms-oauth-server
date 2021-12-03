@@ -99,7 +99,7 @@ deploy to Firebase Function
 
 ```
 npx firebase use <YOUR_FIREBASE_PROJECT_ID>
-npx firebase deploy --only functions:netlify-oauth
+npx firebase deploy --only functions:oauth
 ```
 
 
@@ -114,4 +114,3 @@ npx firebase deploy --only functions:example
 
 - [ ] CI/CD. But this type of app is not frequently released.
 - [ ] Other Git Service support e.g. GitLab, GitHub Enterprise
-- [ ] Specify `timeoutSeconds` , `memory` etc.
