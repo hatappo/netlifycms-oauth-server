@@ -10,4 +10,4 @@
           .-https
           (.onRequest (fn handle-request
                         [^js _req, ^js res]
-                        (.send res "こんにちは、世界"))))})
+                        (.send res "Hello, World"))))})
