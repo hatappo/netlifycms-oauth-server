@@ -14,7 +14,7 @@ npm install
 
 ## Set up GitHub OAuth app
 
-Vist https://github.com/settings/developers and register a new OAuth application.
+Vist https://github.com/settings/developers (or `https://github.com/organizations/<YOUR_GITHUB_ORG>/settings/applications`) and register a new OAuth application.
 
 - `Application name` -  free
 - `Homepage URL` -  free
