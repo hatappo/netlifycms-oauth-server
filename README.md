@@ -107,6 +107,7 @@ npx firebase deploy --only functions:oauth
 
 ```
 npx shadow-cljs release example-functions
+cp package.json functions/
 npx firebase deploy --only functions:example
 ```
 
