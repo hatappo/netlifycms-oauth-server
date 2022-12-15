@@ -7,7 +7,7 @@
   },
   "devDependencies": {
     "firebase-tools": "^11.18.0",
-    "shadow-cljs": "2.20.14"
+    "shadow-cljs": "^2.20.14"
   },
   "dependencies": {
     "express": "^4.18.2",
