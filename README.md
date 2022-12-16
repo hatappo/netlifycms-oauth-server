@@ -19,7 +19,7 @@ Vist https://github.com/settings/developers (or `https://github.com/organization
 - `Application name` -  free
 - `Homepage URL` -  free
 - `Application description` - free
-- `Authorization callback URL` - `https://asia-northeast1-<YOUR_FIREBASE_PROJECT_ID>.cloudfunctions.net/oauth`
+- `Authorization callback URL` - `https://asia-northeast1-<YOUR_FIREBASE_PROJECT_ID>.cloudfunctions.net/oauth/callback`
 
 If you don't have Firebase projects yet here, you can change the callback url after created it.
 
